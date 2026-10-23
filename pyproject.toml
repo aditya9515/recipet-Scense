@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "receiptsense"
+version = "0.1.0"
+description = "Inspectable receipt OCR, field extraction, review, and reproducible experiments"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+  "numpy>=1.26,<2.3",
+  "Pillow>=10.4,<12",
+  "opencv-python==4.10.0.84",
+  "rapidocr-onnxruntime==1.4.4",
+  "pydantic>=2.10,<3",
+  "streamlit>=1.66,<2",
+  "pandas>=2.2,<3",
+  "huggingface-hub>=0.30,<1",
+  "pyarrow>=19,<23",
+]
+
+[project.optional-dependencies]
+ocr = ["paddleocr==3.7.0", "paddlepaddle==3.3.1"]
+ml = ["torch>=2.6,<2.7", "transformers==4.51.3", "safetensors>=0.5", "scikit-learn>=1.5"]
+dev = ["pytest>=8,<9", "ruff>=0.11", "httpx>=0.28"]
+api = ["fastapi>=0.115", "uvicorn>=0.34", "python-multipart>=0.0.20"]
+
+[project.scripts]
+receiptsense = "receiptsense.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B"]
+ignore = ["B008"]  # FastAPI's File dependency declaration is intentional.

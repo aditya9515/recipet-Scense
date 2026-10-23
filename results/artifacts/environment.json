@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-10-23T06:35:29.520903+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.2.6",
+    "Pillow": "11.3.0",
+    "opencv-python": "4.10.0.84",
+    "rapidocr-onnxruntime": "1.4.4",
+    "onnxruntime": "1.31.0",
+    "paddleocr": "3.7.0",
+    "paddlepaddle": "3.3.1",
+    "torch": "2.6.0",
+    "transformers": "4.51.3",
+    "streamlit": "1.66.1",
+    "pydantic": "2.14.1",
+    "fastapi": "0.161.1",
+    "pytest": "8.4.2"
+  },
+  "opencv_runtime": "4.10.0",
+  "torch_cuda_available": false,
+  "execution_device": "CPU",
+  "detected_hardware": "Intel i5-11400H; 16 GB RAM; NVIDIA RTX 3050 Laptop 4 GB",
+  "source_fingerprint": "8d6a76e74ddc3306c9487b2401c3d8dbda9c6975164cca4320cdfe58f59aecf3"
+}

@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-23T05:59:06.719551+00:00",
+  "receipt_is_synthetic": true,
+  "prediction_id": "1aa4a1511e55466b84fbb21ab98a5dcf",
+  "original_company": "EXAMPLE STORE",
+  "reviewed_company": "EXAMPLE STORE REVIEWED",
+  "review_state": "confirmed",
+  "original_preserved": true
+}

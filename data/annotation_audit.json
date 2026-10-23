@@ -1,0 +1,442 @@
+{
+  "reviewed_at": "2026-10-23T05:39:03.569251+00:00",
+  "reviewer": "Codex visual review of 8 training receipts",
+  "sample_policy": "first 8 usable training examples in frozen manifest order",
+  "not_statistically_representative": true,
+  "dataset_fully_manually_verified": false,
+  "findings": [
+    "Reject cash/change/subtotal contexts for total labels",
+    "Preserve negative amount signs",
+    "Unmatched/ambiguous spans remain ignored"
+  ],
+  "receipts": [
+    {
+      "receipt_id": "85a87470219d932c6b86",
+      "source_key": "X51006388066",
+      "reference": {
+        "company": "HERO DISTRIBUTION SDN BHD",
+        "date": "17/05/17",
+        "address": "4243,COMPLEKS PERNIAGAAN SRI GAYA, JLN TMN SUBANG JASA 3, 40150 SELANGOR",
+        "total": "41.50"
+      },
+      "visual_review_note": "Header company and 17/05/17 date agree with image; repeated total is correctly unresolved; address not forced.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "exact_match",
+          "text": "HERO DISTRIBUTION SDN BHD"
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "17/05/17"
+        },
+        "total": {
+          "status": "ambiguous",
+          "text": ""
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "exact_match",
+          "text": "HERO DISTRIBUTION SDN BHD"
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "17/05/17"
+        },
+        "total": {
+          "status": "ambiguous",
+          "text": ""
+        }
+      },
+      "approved_located_fields": [
+        "company",
+        "date"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "8dd1c49aaabc35aa7316",
+      "source_key": "X51007846301",
+      "reference": {
+        "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+        "date": "10 JUN 2018",
+        "address": "12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+        "total": "RM8.50"
+      },
+      "visual_review_note": "Company and merchant address agree with image. Unique string-only total could select CASH; added total cash-context rejection and leave unresolved.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "exact_match",
+          "text": "UNIHAKKAINTERNATIONAL SDN BHD"
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "12, Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200JohorBahru,Johor"
+        },
+        "date": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "RM8.50"
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "exact_match",
+          "text": "UNIHAKKAINTERNATIONAL SDN BHD"
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "12, Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200JohorBahru,Johor"
+        },
+        "date": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "total": {
+          "status": "unmatched",
+          "text": ""
+        }
+      },
+      "approved_located_fields": [
+        "company",
+        "address"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "6aef994e17a59ce0f0bd",
+      "source_key": "X51006556824",
+      "reference": {
+        "company": "GARDENIA BAKERIES (KL) SDN BHD",
+        "date": "29/09/2017",
+        "address": "LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+        "total": "-1.73"
+      },
+      "visual_review_note": "Merchant address is the upper Lot 3 address, not the customer address. Negative total payable -1.73 agrees with image; sign preserved in matching.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "Lot3,JalanPelabur23/1, 40300ShahAlam,Selangor."
+        },
+        "date": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "-1.73"
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "Lot3,JalanPelabur23/1, 40300ShahAlam,Selangor."
+        },
+        "date": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "-1.73"
+        }
+      },
+      "approved_located_fields": [
+        "address",
+        "total"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "cec71238bfbe6fa5da22",
+      "source_key": "X51006414599",
+      "reference": {
+        "company": "LAVENDER CONFECTIONERY & BAKERY S/B",
+        "date": "14/04/2018",
+        "address": "LOT G29 & G30, AEON MALL TEBRAU CITY, NO. 1, JALAN DESA TEBRAU, TAMAN DESA TEBRAU, 81100 JOHOR BAHRU.",
+        "total": "12.30"
+      },
+      "visual_review_note": "Company, 14/04/2018 date, and total 12.30 agree with image; unresolved address remains ignored.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "exact_match",
+          "text": "LAVENDER CONFECTIONERY & BAKERY S/B"
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "14/04/2018"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "12.30"
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "exact_match",
+          "text": "LAVENDER CONFECTIONERY & BAKERY S/B"
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "14/04/2018"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "12.30"
+        }
+      },
+      "approved_located_fields": [
+        "company",
+        "date",
+        "total"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "898603b86f431a39f9be",
+      "source_key": "X51006913070",
+      "reference": {
+        "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+        "date": "24 MAY 2018",
+        "address": "12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+        "total": "$8.40"
+      },
+      "visual_review_note": "Company/address and 24 May 2018 date agree with image; repeated amount remains unresolved.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "exact_match",
+          "text": "UNIHAKKA INTERNATIONAL SDN BHD"
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "12, Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200 Johor Bahru, Johor"
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "24 May 2018"
+        },
+        "total": {
+          "status": "ambiguous",
+          "text": ""
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "exact_match",
+          "text": "UNIHAKKA INTERNATIONAL SDN BHD"
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "12, Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200 Johor Bahru, Johor"
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "24 May 2018"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "$8.40"
+        }
+      },
+      "approved_located_fields": [
+        "company",
+        "address",
+        "date",
+        "total"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "c25c2b7c6cac242c145f",
+      "source_key": "X51005568914",
+      "reference": {
+        "company": "IKANO HANDEL SDN BHD",
+        "date": "09/08/17",
+        "address": "NO 2A JALAN COCHRANE TAMAN MALURI 55100 KUALA LUMPUR",
+        "total": "99.80"
+      },
+      "visual_review_note": "Legal company IKANO HANDEL and address agree with image. Repeated 99.80 versus card -99.80 requires sign-aware matching; date remains unforced.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "exact_match",
+          "text": "IKANO HANDEL SDN BHD"
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "No 2A Jalan Cochrane Taman Maluri 55100KUALA LUMPUR"
+        },
+        "date": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "total": {
+          "status": "ambiguous",
+          "text": ""
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "exact_match",
+          "text": "IKANO HANDEL SDN BHD"
+        },
+        "address": {
+          "status": "exact_match",
+          "text": "No 2A Jalan Cochrane Taman Maluri 55100KUALA LUMPUR"
+        },
+        "date": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "total": {
+          "status": "ambiguous",
+          "text": ""
+        }
+      },
+      "approved_located_fields": [
+        "company",
+        "address"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "1acfb44981060f0b1833",
+      "source_key": "X51006502531",
+      "reference": {
+        "company": "FAMILYMART",
+        "date": "16/04/2018",
+        "address": "NO 16A, JALAN ASTAKA U8/83, BUKIT JELUTONG. 40150 SHAH ALAM, SELANGOR, D.E.",
+        "total": "18.80"
+      },
+      "visual_review_note": "FamilyMart, 16/04/2018 and final total 18.80 agree with image. Subtotal/payment contexts excluded from total supervision.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "exact_match",
+          "text": "FamilyMart"
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "16/04/2018"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "18.80"
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "exact_match",
+          "text": "FamilyMart"
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "16/04/2018"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "18.80"
+        }
+      },
+      "approved_located_fields": [
+        "company",
+        "date",
+        "total"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    },
+    {
+      "receipt_id": "27f8b4fdca42af09d967",
+      "source_key": "X51005757294",
+      "reference": {
+        "company": "MR. D.I.Y. (M) SDN BHD",
+        "date": "18-03-18",
+        "address": "LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+        "total": "10.60"
+      },
+      "visual_review_note": "Bottom date 18-03-18 and total 10.60 agree with image; company/address OCR mismatch remains ignored.",
+      "scope": "available exact positive spans and unresolved-field handling; not full pixel-level annotation",
+      "aligned_before_review": {
+        "company": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "18-03-18"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "10.60"
+        }
+      },
+      "alignment_after_policy_fix": {
+        "company": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "address": {
+          "status": "unmatched",
+          "text": ""
+        },
+        "date": {
+          "status": "exact_match",
+          "text": "18-03-18"
+        },
+        "total": {
+          "status": "exact_match",
+          "text": "10.60"
+        }
+      },
+      "approved_located_fields": [
+        "date",
+        "total"
+      ],
+      "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+    }
+  ]
+}

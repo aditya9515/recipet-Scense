@@ -1,0 +1,76 @@
+[
+  {
+    "source_key": "X51005433522",
+    "source_partition": "train",
+    "reason": "Missing reference entity"
+  },
+  {
+    "source_key": "X51005663280",
+    "source_partition": "train",
+    "reason": "Missing reference entity"
+  },
+  {
+    "source_key": "X51005301659",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51005303661",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51005453729",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51005568881",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51006008091",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51006008095",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51006328913",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51006329399",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51006332575",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51007135037",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51007135247",
+    "reason": "training duplicate of held-out receipt"
+  },
+  {
+    "source_key": "X51009453801",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51009453804",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51005301666",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51005684949",
+    "reason": "byte-identical duplicate within supplied partition"
+  },
+  {
+    "source_key": "X51009447842",
+    "reason": "byte-identical duplicate within supplied partition"
+  }
+]

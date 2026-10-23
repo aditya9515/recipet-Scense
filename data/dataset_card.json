@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-10-23T05:19:32.948997+00:00",
+  "provider": "jsdnrs/ICDAR2019-SROIE",
+  "source_url": "https://huggingface.co/datasets/jsdnrs/ICDAR2019-SROIE",
+  "revision": "bffe40c26759f3376ec2b3ae9031dbba54cd587c",
+  "mirror_license": "CC BY 4.0",
+  "terms_files": [
+    "D:\\sem7\\CV\\data\\raw\\LICENSE",
+    "D:\\sem7\\CV\\data\\raw\\NOTICE",
+    "D:\\sem7\\CV\\data\\raw\\README.md"
+  ],
+  "seed": 42,
+  "counts": {
+    "validation": 61,
+    "train": 550,
+    "test": 358
+  },
+  "split_hashes": {
+    "validation": "4b456c2f7d4d7e56305f08b791ca0ca73cb4c290b46458fe6209f15417f562de",
+    "train": "61faa9591bf989aa607d49faa99884633ad065d918a49963618fb01e9c8881e0",
+    "test": "416b91f84c548066d567147a8de16b1e82b0a361861145f176e8c40ab1c916f1"
+  },
+  "exclusions": 18,
+  "duplicate_policy": "remove train duplicates of test; deduplicate within partition",
+  "reference_geometry": "mirror OCR regions; inspect word/line granularity; not deployment OCR",
+  "archive_sha256": {
+    "train": "b18c16b4d8481e5e4537a1700e4616907fe4acd92d6362a7e430b0e866213887",
+    "test": "04f8f31b45944cc6e6459a7a95c851a721fc93ffec0a5c29ece9ded734a684c2"
+  }
+}

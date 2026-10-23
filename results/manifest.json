@@ -1,0 +1,265 @@
+{
+  "scope": "selected frozen experiment evidence; no model weights or runtime databases",
+  "files": [
+    {
+      "path": "artifacts/environment.json",
+      "bytes": 846,
+      "sha256": "d987bc16e93e0dc2880996ea61a19349016d3cee1372e6862e8a118b22172960"
+    },
+    {
+      "path": "artifacts/benchmark.json",
+      "bytes": 7745,
+      "sha256": "6cc9e5d8c2e1edc1a45ff2b404692ad0f8713cf690cae02d70a8165afdf415c4"
+    },
+    {
+      "path": "artifacts/test-results.xml",
+      "bytes": 3539,
+      "sha256": "dc0e73d515624d22e93926950dc6a34e47d403893cd6a55284e36d4ffd6dd988"
+    },
+    {
+      "path": "artifacts/checkpoint_reload_check.json",
+      "bytes": 53870,
+      "sha256": "362a409a895b2a43d523eec91c56a85248ee397aeaefa3f3f79007bc2846df34"
+    },
+    {
+      "path": "artifacts/api_smoke_check.json",
+      "bytes": 386,
+      "sha256": "3a5de91ce9fb49de42b3e267caf4e8f838649000f26935ea79962dba340f3efe"
+    },
+    {
+      "path": "artifacts/ui_workflow_check.json",
+      "bytes": 299,
+      "sha256": "3f671e9a70ff2476c18fbbab436178e566a3cbd656718ab2b4d5d4fba001ba47"
+    },
+    {
+      "path": "artifacts/error_analysis.json",
+      "bytes": 683983,
+      "sha256": "e79c6c227e65606c4e2d0b3840015982a63e0e009fa25cf3dddff315bebc1e14"
+    },
+    {
+      "path": "data/processed/labels_train.summary.json",
+      "bytes": 631,
+      "sha256": "02ecf57759ba7d3576b60688d92e61c0eb5c43d70f96cb9b07a59fcca0720935"
+    },
+    {
+      "path": "data/processed/labels_validation.summary.json",
+      "bytes": 595,
+      "sha256": "4591ead6866bd0adf7c2e91c0c6f7e650f44868f277c5a926d6a4e0f6bd69f2b"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/layoutlmv3_normalized-v1.json",
+      "bytes": 289692,
+      "sha256": "82a1b94929b17e41e5df2ff1758f770c73d3e7fc432582b0b04405a38209c2c3"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/layoutlmv3_predictions.jsonl",
+      "bytes": 780230,
+      "sha256": "54ad68787c77a76cfd7fc0a4ec1586813593bb6e19f1fb779125f75c0cb18036"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/layoutlmv3_strict-v1.json",
+      "bytes": 289683,
+      "sha256": "04491c5fafc75dc989b8802b3f9e5179b3b4c582849e07ac6be89f0daf2ba8b4"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/rules_normalized-v1.json",
+      "bytes": 289790,
+      "sha256": "cf29c1b0f95929fdf436b985d05ff920e24d29bb467533e9eeeed383b64b3fd0"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/rules_predictions.jsonl",
+      "bytes": 721823,
+      "sha256": "58c6720b6bf5e92f7e4eaf81cc8547b0cc9ccb0c377fee4d5a4ae8c093f07335"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/rules_strict-v1.json",
+      "bytes": 289737,
+      "sha256": "e1eb56ed02c377674c83609f54c3c664f8c11857f9387be4fd19c1cbab232f8a"
+    },
+    {
+      "path": "artifacts/runs/held-out-v1/summary.json",
+      "bytes": 5037,
+      "sha256": "d18013d7b65f842af6053eba5fe7c43ff65de2c27c61fd64183e870707b0c066"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/blur_layoutlmv3_metrics.json",
+      "bytes": 10487,
+      "sha256": "ee9a48358c290f683c44f96198b7d852aa634267772e0ab4e0d44ff13b185005"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/blur_layoutlmv3_predictions.jsonl",
+      "bytes": 28611,
+      "sha256": "cbb3695b5e267115e32081976baa70337f12452e9bbe8a6b8ef49510b48681c1"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/blur_references.jsonl",
+      "bytes": 34046,
+      "sha256": "6ebb53ae8f3f8cb3471954e611f36aacc739455f23db8cb73af57a313af7cdaa"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/blur_rules_metrics.json",
+      "bytes": 10562,
+      "sha256": "33bdfe0dac98cae21525742ebef49ba2564c8226b90f52de33f045c1a88f2929"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/blur_rules_predictions.jsonl",
+      "bytes": 27368,
+      "sha256": "e5ab30d57824d72918f7acfbc07188676c0ee30076fdd9560b5b299e2b78d2f9"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/clean_layoutlmv3_metrics.json",
+      "bytes": 10528,
+      "sha256": "d09405eb1cf627e41121ce45788b5121859f575ebd492140d8b1e004071d7047"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/clean_layoutlmv3_predictions.jsonl",
+      "bytes": 28866,
+      "sha256": "89293ade5e1c93a12abbb271f1bce427feba77e532d6a58c5a552b2d4e3d6f4a"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/clean_references.jsonl",
+      "bytes": 34058,
+      "sha256": "ebcb30fcbb4cbc14e849941b2b5f0baca19bb6863d4c1618226846ec5417f019"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/clean_rules_metrics.json",
+      "bytes": 10561,
+      "sha256": "960ab6f7dda653e6d65b39611aa73da5a89e0aaee85fe5a973f98b0d3e24505e"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/clean_rules_predictions.jsonl",
+      "bytes": 27594,
+      "sha256": "e45c4add65f68b24862712d2cf3b225d121e22829e4886fba35f6c40dbfa0ccc"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/contrast_layoutlmv3_metrics.json",
+      "bytes": 10531,
+      "sha256": "1bbb24815964ab629adb5817eca7a21a299e2e457941393f207e8770a714b100"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/contrast_layoutlmv3_predictions.jsonl",
+      "bytes": 29191,
+      "sha256": "bd6508e639529cebf4881b78d966424ba880d219ce2cedff0be55dfa50d519a5"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/contrast_references.jsonl",
+      "bytes": 34094,
+      "sha256": "05733e826ff87d1e326413ab37d8dc8bed88e2c8458f82d8efe7516ac5231754"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/contrast_rules_metrics.json",
+      "bytes": 10339,
+      "sha256": "0548b6a9d6731db7bd4f7abcee085ad279c6327bff3b9388530888c8c9011f17"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/contrast_rules_predictions.jsonl",
+      "bytes": 27258,
+      "sha256": "cd854646f502cae1089c51bac137f018dae9ac4d18aee0d8ca74eec869ae9d07"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/deskew_layoutlmv3_metrics.json",
+      "bytes": 10507,
+      "sha256": "28f64704f8bf20d4f0b94c8cbe2f3ad18b716ccff2e9aaba721ae7e01fdec09c"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/deskew_layoutlmv3_predictions.jsonl",
+      "bytes": 28920,
+      "sha256": "c1b54304b5b7b43538d83f1731c4dc19936a57e2e7eedad52e66b4d29485e454"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/deskew_references.jsonl",
+      "bytes": 34070,
+      "sha256": "99e73fa651834c3c13e8c87d85ff6d1e4ed394f3583efff01f45235497dc48b3"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/deskew_rules_metrics.json",
+      "bytes": 10562,
+      "sha256": "9196060e584fdf19fb6387e6a52bbfe3120d6e078c907fdbb83c78562c811611"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/deskew_rules_predictions.jsonl",
+      "bytes": 27635,
+      "sha256": "0eec5f49d54d19e03deec7be689dc61f012d40dc79c9bfd3c57954dc0b74c341"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/perspective_layoutlmv3_metrics.json",
+      "bytes": 10392,
+      "sha256": "ccd2764aef8827cc1092018ad9f53283b0f019aa86b9493cb335f65c227c4c98"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/perspective_layoutlmv3_predictions.jsonl",
+      "bytes": 28467,
+      "sha256": "ecaccb64c05cfdd874facd587fd71351153942f576b42b7e6b97c1efbc659956"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/perspective_references.jsonl",
+      "bytes": 34130,
+      "sha256": "03e91f4db20ec1d5a432263f517eec83231e4814dd803d5de1e50929b7baf41b"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/perspective_rules_metrics.json",
+      "bytes": 10446,
+      "sha256": "b0443f5d8dd93b5d18f17e07c97ecb06c08069a6a2b6a05e4d9e33ad484d1778"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/perspective_rules_predictions.jsonl",
+      "bytes": 27155,
+      "sha256": "c38573b5af77f283c09386b7c4540f2ac5a6c4fc29e830225fc722595e4eead8"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/rotation_layoutlmv3_metrics.json",
+      "bytes": 10286,
+      "sha256": "4b4f9f99bede3414c1ade8ed0d7716fe2b9d558cedbf64fba0e0e8966fe609aa"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/rotation_layoutlmv3_predictions.jsonl",
+      "bytes": 28307,
+      "sha256": "a9e9a3cddb9d0a7bbb9df77e822395d8b26887070e15852f94dec4e6cc0e51ba"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/rotation_references.jsonl",
+      "bytes": 34094,
+      "sha256": "2a3d9495e0fea257566f8c87e7c4824f0a28f5348d19448671086ee8347cc048"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/rotation_rules_metrics.json",
+      "bytes": 10544,
+      "sha256": "d37ee822a682c95c55e6ba302c9167124a3f423d07787c067a7b73281c7641ec"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/rotation_rules_predictions.jsonl",
+      "bytes": 27282,
+      "sha256": "00f054f596cbc763f2b154f6aeb4d3838215f5333f595e45d726fa35611ecdde"
+    },
+    {
+      "path": "artifacts/robustness/robustness-v1/summary.json",
+      "bytes": 11195,
+      "sha256": "a2168b9dd12218be3ce6a539c395ef8bd0662c60b07a2efd5b169d4bb89273eb"
+    },
+    {
+      "path": "artifacts/models/receiptsense-layoutlmv3/receiptsense_model.json",
+      "bytes": 5107,
+      "sha256": "1f076fe84bade0f3d1477cf2f759011f69e40c8b27b6936d1d8413604fcf690a"
+    },
+    {
+      "path": "artifacts/models/receiptsense-layoutlmv3/tiny_overfit_check.json",
+      "bytes": 339,
+      "sha256": "eb1a4cd8d6a2950eb2a70125041a231bb5d2c6558383db96d277a02ecdbaa279"
+    },
+    {
+      "path": "artifacts/models/receiptsense-layoutlmv3/training_log.json",
+      "bytes": 5107,
+      "sha256": "1f076fe84bade0f3d1477cf2f759011f69e40c8b27b6936d1d8413604fcf690a"
+    },
+    {
+      "path": "artifacts/models/receiptsense-layoutlmv3/validation_metrics.json",
+      "bytes": 50067,
+      "sha256": "25b90a1d1209475c48f05cbf48c65d26e4124894f524b36ebf1f0bd059116efb"
+    },
+    {
+      "path": "artifacts/models/receiptsense-layoutlmv3/validation_predictions.jsonl",
+      "bytes": 127820,
+      "sha256": "8844be7617a670f87c0d6260e60fbf2e467f77fbbab8cf39d10572d845e0d243"
+    }
+  ]
+}

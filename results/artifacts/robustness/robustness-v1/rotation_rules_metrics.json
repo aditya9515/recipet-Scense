@@ -1,0 +1,347 @@
+{
+  "policy": "strict-v1",
+  "n_receipts": 12,
+  "per_field": {
+    "company": {
+      "correct": 1,
+      "n": 12,
+      "exact_match": 0.08333333333333333
+    },
+    "address": {
+      "correct": 0,
+      "n": 12,
+      "exact_match": 0
+    },
+    "date": {
+      "correct": 9,
+      "n": 12,
+      "exact_match": 0.75
+    },
+    "total": {
+      "correct": 1,
+      "n": 12,
+      "exact_match": 0.08333333333333333
+    }
+  },
+  "macro_field_em": 0.22916666666666666,
+  "all_four_em": 0,
+  "all_four_denominator": 12,
+  "missing_predictions": 0,
+  "review_rate": 0.8333333333333334,
+  "review_error_recall": 0.8333333333333334,
+  "unflagged_accuracy": 0,
+  "rows": [
+    {
+      "receipt_id": "f191234257f28404e24b",
+      "source_key": "X51006329183",
+      "correct": {
+        "company": true,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "SEMBOYAN TEGAS SDN BHD",
+        "date": "06-03-2018",
+        "address": "NO.5 & 7 , JALAN TSJ 2. TAMAN SUBANG JASA KG. BARU SUBANG. 40150 SHAH ALAM SELANGOR DARUL EHSAN",
+        "total": "27.00"
+      },
+      "predicted": {
+        "company": "SEMBOYAN TEGAS SDN BHD",
+        "address": "No.5& 7. Jalan TSJ 2.\nTaman Subang Jasa\nKg.8 Baru Subang.0i50 Sr.ah Alam",
+        "date": "06-03-2018",
+        "total": "24.44"
+      }
+    },
+    {
+      "receipt_id": "fe15ea0ec3999da0288d",
+      "source_key": "X51005447859",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": false,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "PASARAYA BORONG PINTAR SDN BHD",
+        "date": "14/02/2018",
+        "address": "NO 19-G& 19-1& 19-2 JALAN TASIK UTAMA 4, MEDAN NIAGA TASIK DAMAI",
+        "total": "1.45"
+      },
+      "predicted": {
+        "company": "SDN BHD",
+        "address": "BRNo.:(124525-H)\nNO 19-G&19-1819-2JALANTASIKUTAMA4, MEDANNIAGATASIKDAMAI",
+        "date": null,
+        "total": "1.00"
+      }
+    },
+    {
+      "receipt_id": "a923356d7449bf4e8959",
+      "source_key": "X51005577191",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "FY EAGLE ENTERPRISE",
+        "date": "07/12/2017",
+        "address": "NO. 42, JALAN PBS 14/11, TAMAN PERINDUSTRIAN BUKIT SERDANG, 43300 SERI KEMBANGAN, SELANGOR",
+        "total": "10.00"
+      },
+      "predicted": {
+        "company": "FY EAGLE ENTERPRISE 002065464-X",
+        "address": "NO.42,JALAN PBS 14/11,\nTAMAN PERINDUSTRIAN BUKIT SERDANG,\n43300 SERI KEMBANGAN, SELANGOR",
+        "date": "07/12/2017",
+        "total": "0.00"
+      }
+    },
+    {
+      "receipt_id": "b5644c66fae233fddf95",
+      "source_key": "X51005442343",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "YONG TAT HARDWARE TRADING",
+        "date": "13/03/2018",
+        "address": "NO 4,JALAN PERJIRANAN 10, TAMAN AIR BIRU, 81700 PASIR GUDANG, JOHOR.",
+        "total": "72.00"
+      },
+      "predicted": {
+        "company": "YONGTATHARDWARETRADING",
+        "address": "(JM0292487-D)\nNO4.JALANPERJIRANAN 10.\nTAMANAIRBIRU,\n81700PASIRGUDANG.\nJOHOR.",
+        "date": "13/03/2018",
+        "total": "67.92"
+      }
+    },
+    {
+      "receipt_id": "108a497ac8a8b91cc6db",
+      "source_key": "X51007846268",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": false,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": false,
+      "missing_prediction": false,
+      "reference": {
+        "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+        "date": "02 JUN 2018",
+        "address": "12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+        "total": "RM10.35"
+      },
+      "predicted": {
+        "company": "UNIHAKKA INTERNATIONAL SDN BHD 02 Jun 2018 18:23",
+        "address": "12,Jalan Tampoi 7/4,Kawasan Perindustrian Tampoi,81200Johor BahruJohor (867388-U)\nTAXINVOICE",
+        "date": "02 Jun 2018",
+        "total": "RM1.88"
+      }
+    },
+    {
+      "receipt_id": "0dc063697d0d67dc2b1c",
+      "source_key": "X51006556808",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "GARDENIA BAKERIES (KL) SDN BHD",
+        "date": "22/09/2017",
+        "address": "LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+        "total": "79.26"
+      },
+      "predicted": {
+        "company": "MAIAJAR FRESH MARKET SDN BHD VE",
+        "address": "GROUND F100R,NO.4&6, JALANSS15/4B,",
+        "date": "22/09/2017",
+        "total": "0"
+      }
+    },
+    {
+      "receipt_id": "9063f097ad6bc273f56d",
+      "source_key": "X51007846355",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "AEON CO. (M) BHD",
+        "date": "17/06/2018",
+        "address": "3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+        "total": "8.95"
+      },
+      "predicted": {
+        "company": "3RD FLR，AEON TAMAN MALURI SC AEON CO.(M)BHD (126926-H) JLN JEJAKA,TAMAN MALURI",
+        "address": null,
+        "date": "17/06/2018",
+        "total": "022"
+      }
+    },
+    {
+      "receipt_id": "844663c1d99fae3f8986",
+      "source_key": "X51005676534",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "SYARIKAT PERNIAGAAN GIN KEE",
+        "date": "03/01/2018",
+        "address": "NO 290, JALAN AIR PANAS, SETAPAK, 53200, KUALA LUMPUR.",
+        "total": "72.08"
+      },
+      "predicted": {
+        "company": "SYARIKATPERNIAGAAN GINKEE",
+        "address": "(81109-A)\nNO 290, JALAN AIR PANAS,\nSETAPAK,\n53200,KUALALUMPUR.",
+        "date": "03/01/2018",
+        "total": "68.00"
+      }
+    },
+    {
+      "receipt_id": "398211f34d4dade010ab",
+      "source_key": "X51007846379",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "AEON CO. (M) BHD",
+        "date": "03/06/2018",
+        "address": "3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+        "total": "79.45"
+      },
+      "predicted": {
+        "company": "3RD FLR,AEON TAMAN MALURI SC AEON CO.(M) BHD (126926-H)",
+        "address": "CHERAS，55100 KUALA LUMPUR JLN JEJAKA，TAMAN MALURI",
+        "date": "03/06/2018",
+        "total": "2"
+      }
+    },
+    {
+      "receipt_id": "3a5b8e8d1945d6a8bd46",
+      "source_key": "X51005582745",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "MODERN DEPOT SDN BHD",
+        "date": "04/12/2016",
+        "address": "NO.19, PT18685, JALAN JAMBU MELAKA 2, JINJANG SELATAN, KEPONG.",
+        "total": "150.00"
+      },
+      "predicted": {
+        "company": "MODERNDEPOTSDNBHD 950345-T",
+        "address": "NO.19,PT18685,JALAN JAMBU MELAKA 2 JINJANG SELATAN,KEPONG.",
+        "date": "04/12/2016",
+        "total": "0.00"
+      }
+    },
+    {
+      "receipt_id": "787f12dd0ec5ab9c7973",
+      "source_key": "X51006389898",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": true,
+        "total": true
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": false,
+      "missing_prediction": false,
+      "reference": {
+        "company": "RESTORAN WAN SHE",
+        "date": "29-09-2017",
+        "address": "NO. 2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+        "total": "164.40"
+      },
+      "predicted": {
+        "company": "RESTORAN WAN SHF",
+        "address": "002043319-W\nNo.2, Jalan Temenggung 19/9,\nSeksyen 9,Bandar Mahkota Cheras,\n43200 Cheras, Selangor",
+        "date": "29-09-2017",
+        "total": "164.40"
+      }
+    },
+    {
+      "receipt_id": "3262206f477976b76ee1",
+      "source_key": "X51007846372",
+      "correct": {
+        "company": false,
+        "address": false,
+        "date": false,
+        "total": false
+      },
+      "all_four": false,
+      "has_four_references": true,
+      "flagged": true,
+      "missing_prediction": false,
+      "reference": {
+        "company": "UNIHAKKA INTERNATIONAL SDN BHD",
+        "date": "14 JUN 2018",
+        "address": "12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU, JOHOR",
+        "total": "RM10.15"
+      },
+      "predicted": {
+        "company": "UNIHAKKA INTERNATIONAL SDN BHD 14Jun201818:27",
+        "address": "12,JalanTampoi7/4,KawasanPerindustrian (867388-U)\nTampoi81200JohorBahruJohor TAXINVOICE",
+        "date": null,
+        "total": "1"
+      }
+    }
+  ]
+}

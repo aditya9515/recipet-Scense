@@ -1,0 +1,172 @@
+{
+  "created_at": "2026-10-23T06:29:08.035596+00:00",
+  "manifest": "D:\\sem7\\CV\\data\\manifests\\test.jsonl",
+  "source_fingerprint": "eea1c27bbdb2e815958a3007228d6eb357360e3861fb8498573466b89e3993f9",
+  "split_hash": "416b91f84c548066d567147a8de16b1e82b0a361861145f176e8c40ab1c916f1",
+  "record_directory": "D:\\sem7\\CV\\data\\processed\\records\\identity",
+  "n_receipts": 358,
+  "partial_subset": false,
+  "ocr_fingerprints": [
+    "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a"
+  ],
+  "failures": [],
+  "results": {
+    "rules": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 358,
+        "per_field": {
+          "company": {
+            "correct": 95,
+            "n": 358,
+            "exact_match": 0.26536312849162014
+          },
+          "address": {
+            "correct": 4,
+            "n": 358,
+            "exact_match": 0.0111731843575419
+          },
+          "date": {
+            "correct": 207,
+            "n": 358,
+            "exact_match": 0.5782122905027933
+          },
+          "total": {
+            "correct": 177,
+            "n": 358,
+            "exact_match": 0.49441340782122906
+          }
+        },
+        "macro_field_em": 0.3372905027932961,
+        "all_four_em": 0,
+        "all_four_denominator": 358,
+        "missing_predictions": 0,
+        "review_rate": 0.9245810055865922,
+        "review_error_recall": 0.9245810055865922,
+        "unflagged_accuracy": 0
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 358,
+        "per_field": {
+          "company": {
+            "correct": 113,
+            "n": 358,
+            "exact_match": 0.31564245810055863
+          },
+          "address": {
+            "correct": 5,
+            "n": 358,
+            "exact_match": 0.013966480446927373
+          },
+          "date": {
+            "correct": 120,
+            "n": 358,
+            "exact_match": 0.33519553072625696
+          },
+          "total": {
+            "correct": 199,
+            "n": 358,
+            "exact_match": 0.5558659217877095
+          }
+        },
+        "macro_field_em": 0.3051675977653631,
+        "all_four_em": 0,
+        "all_four_denominator": 358,
+        "missing_predictions": 0,
+        "review_rate": 0.9245810055865922,
+        "review_error_recall": 0.9245810055865922,
+        "unflagged_accuracy": 0
+      },
+      "cached_latency": {
+        "n": 358,
+        "median_seconds": 0.0017062499973690137,
+        "p95_seconds": 0.002873885003282338
+      }
+    },
+    "layoutlmv3": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 358,
+        "per_field": {
+          "company": {
+            "correct": 100,
+            "n": 358,
+            "exact_match": 0.27932960893854747
+          },
+          "address": {
+            "correct": 6,
+            "n": 358,
+            "exact_match": 0.01675977653631285
+          },
+          "date": {
+            "correct": 110,
+            "n": 358,
+            "exact_match": 0.30726256983240224
+          },
+          "total": {
+            "correct": 251,
+            "n": 358,
+            "exact_match": 0.7011173184357542
+          }
+        },
+        "macro_field_em": 0.3261173184357542,
+        "all_four_em": 0,
+        "all_four_denominator": 358,
+        "missing_predictions": 0,
+        "review_rate": 0.9972067039106145,
+        "review_error_recall": 0.9972067039106145,
+        "unflagged_accuracy": 0
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 358,
+        "per_field": {
+          "company": {
+            "correct": 119,
+            "n": 358,
+            "exact_match": 0.3324022346368715
+          },
+          "address": {
+            "correct": 23,
+            "n": 358,
+            "exact_match": 0.06424581005586592
+          },
+          "date": {
+            "correct": 58,
+            "n": 358,
+            "exact_match": 0.16201117318435754
+          },
+          "total": {
+            "correct": 271,
+            "n": 358,
+            "exact_match": 0.7569832402234636
+          }
+        },
+        "macro_field_em": 0.32891061452513964,
+        "all_four_em": 0.0223463687150838,
+        "all_four_denominator": 358,
+        "missing_predictions": 0,
+        "review_rate": 0.9972067039106145,
+        "review_error_recall": 0.9971428571428571,
+        "unflagged_accuracy": 0
+      },
+      "cached_latency": {
+        "n": 358,
+        "median_seconds": 0.7187282000013511,
+        "p95_seconds": 1.3020968649951095
+      }
+    }
+  },
+  "latency_scope": "cached OCR extraction+validation only; excludes OCR and startup",
+  "paired_strict": {
+    "difference": -0.0111731843575419,
+    "ci95": [
+      -0.03423533519553072,
+      0.009776536312849162
+    ],
+    "bootstrap_receipts": 358,
+    "samples": 1000,
+    "seed": 42
+  }
+}

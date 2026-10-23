@@ -1,0 +1,10 @@
+{
+  "synthetic": true,
+  "reference": {
+    "company": "RIVER BOOK STORE",
+    "address": "24 RIVER ROAD CENTRAL CITY 560002",
+    "date": "03/04/2025",
+    "total": "40.00"
+  },
+  "purpose": "Constructed interaction/OCR demo, never held-out benchmark evidence"
+}

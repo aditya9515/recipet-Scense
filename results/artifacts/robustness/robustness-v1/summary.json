@@ -1,0 +1,433 @@
+{
+  "created_at": "2026-10-23T06:29:08.690651+00:00",
+  "seed": 42,
+  "n_parent_receipts": 12,
+  "parent_ids": [
+    "e9ed46ab8c1fb3e5e9c7",
+    "25c2093049df1faa6646",
+    "07ccd1741db25d4ee693",
+    "63e5433a3ad5f3333663",
+    "56ef5c76bb2f0e983f93",
+    "4feb18e50690d4f9060f",
+    "321370bd0dfe052a9e68",
+    "232fcc8ca56b8cb64d62",
+    "f676a280a097a400db1c",
+    "c5770ca22f027e52b52a",
+    "1f33a99b96b720a082f9",
+    "de2f3a9d5291aa0a6f97"
+  ],
+  "manifest": "D:\\sem7\\CV\\data\\manifests\\test.jsonl",
+  "probe_policy": "common max-side 1600; automatic deskew; blur 5x5 sigma1.2; rotation7deg padded; contrast0.55; perspective0.04",
+  "partial_subset": true,
+  "results": {
+    "clean": {
+      "rules": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          },
+          "total": {
+            "correct": 8,
+            "n": 12,
+            "exact_match": 0.6666666666666666
+          }
+        },
+        "macro_field_em": 0.41666666666666663,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "layoutlmv3": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "total": {
+            "correct": 8,
+            "n": 12,
+            "exact_match": 0.6666666666666666
+          }
+        },
+        "macro_field_em": 0.29166666666666663,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      }
+    },
+    "deskew": {
+      "rules": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          },
+          "total": {
+            "correct": 8,
+            "n": 12,
+            "exact_match": 0.6666666666666666
+          }
+        },
+        "macro_field_em": 0.41666666666666663,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "layoutlmv3": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "total": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          }
+        },
+        "macro_field_em": 0.3125,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      }
+    },
+    "blur": {
+      "rules": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 2,
+            "n": 12,
+            "exact_match": 0.16666666666666666
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          },
+          "total": {
+            "correct": 5,
+            "n": 12,
+            "exact_match": 0.4166666666666667
+          }
+        },
+        "macro_field_em": 0.3333333333333333,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "layoutlmv3": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 1,
+            "n": 12,
+            "exact_match": 0.08333333333333333
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 4,
+            "n": 12,
+            "exact_match": 0.3333333333333333
+          },
+          "total": {
+            "correct": 7,
+            "n": 12,
+            "exact_match": 0.5833333333333334
+          }
+        },
+        "macro_field_em": 0.25,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      }
+    },
+    "rotation": {
+      "rules": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 1,
+            "n": 12,
+            "exact_match": 0.08333333333333333
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          },
+          "total": {
+            "correct": 1,
+            "n": 12,
+            "exact_match": 0.08333333333333333
+          }
+        },
+        "macro_field_em": 0.22916666666666666,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 0.8333333333333334,
+        "review_error_recall": 0.8333333333333334,
+        "unflagged_accuracy": 0
+      },
+      "layoutlmv3": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 4,
+            "n": 12,
+            "exact_match": 0.3333333333333333
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "total": {
+            "correct": 6,
+            "n": 12,
+            "exact_match": 0.5
+          }
+        },
+        "macro_field_em": 0.2708333333333333,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      }
+    },
+    "contrast": {
+      "rules": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          },
+          "total": {
+            "correct": 6,
+            "n": 12,
+            "exact_match": 0.5
+          }
+        },
+        "macro_field_em": 0.375,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "layoutlmv3": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 4,
+            "n": 12,
+            "exact_match": 0.3333333333333333
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 5,
+            "n": 12,
+            "exact_match": 0.4166666666666667
+          },
+          "total": {
+            "correct": 7,
+            "n": 12,
+            "exact_match": 0.5833333333333334
+          }
+        },
+        "macro_field_em": 0.33333333333333337,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      }
+    },
+    "perspective": {
+      "rules": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 2,
+            "n": 12,
+            "exact_match": 0.16666666666666666
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 9,
+            "n": 12,
+            "exact_match": 0.75
+          },
+          "total": {
+            "correct": 4,
+            "n": 12,
+            "exact_match": 0.3333333333333333
+          }
+        },
+        "macro_field_em": 0.3125,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "layoutlmv3": {
+        "policy": "strict-v1",
+        "n_receipts": 12,
+        "per_field": {
+          "company": {
+            "correct": 2,
+            "n": 12,
+            "exact_match": 0.16666666666666666
+          },
+          "address": {
+            "correct": 0,
+            "n": 12,
+            "exact_match": 0
+          },
+          "date": {
+            "correct": 3,
+            "n": 12,
+            "exact_match": 0.25
+          },
+          "total": {
+            "correct": 7,
+            "n": 12,
+            "exact_match": 0.5833333333333334
+          }
+        },
+        "macro_field_em": 0.25,
+        "all_four_em": 0,
+        "all_four_denominator": 12,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      }
+    }
+  },
+  "failures": []
+}

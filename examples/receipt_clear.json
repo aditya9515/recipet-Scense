@@ -1,0 +1,10 @@
+{
+  "synthetic": true,
+  "reference": {
+    "company": "EXAMPLE STORE",
+    "address": "12 MAIN ROAD CENTRAL CITY 560001",
+    "date": "2025-02-14",
+    "total": "493.50"
+  },
+  "purpose": "Constructed interaction/OCR demo, never held-out benchmark evidence"
+}

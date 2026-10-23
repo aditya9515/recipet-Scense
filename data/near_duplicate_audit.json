@@ -1,0 +1,33 @@
+{
+  "receipts_checked": 969,
+  "policy": "cross-split pHash Hamming <=2 and thumbnail MAE <2/255; manual review required",
+  "candidates": [
+    {
+      "first_id": "283048aeb80fd8329318",
+      "first_key": "X51005433541",
+      "first_split": "train",
+      "second_id": "2222d985ccb3ab0ecf58",
+      "second_key": "X51007231274",
+      "second_split": "test",
+      "phash_hamming": 2,
+      "thumbnail_mae_255_scale": 1.2836456298828125,
+      "status": "visually_reviewed_distinct_receipts",
+      "review_note": "Distinct receipts: 14 March versus 6 May 2018, different invoice numbers/items/totals; same merchant template."
+    },
+    {
+      "first_id": "0d1e06e66bc97f4dd58a",
+      "first_key": "X51005442394",
+      "first_split": "train",
+      "second_id": "280e6bf730bd7b864498",
+      "second_key": "X51006414592",
+      "second_split": "test",
+      "phash_hamming": 2,
+      "thumbnail_mae_255_scale": 1.623443603515625,
+      "status": "visually_reviewed_distinct_receipts",
+      "review_note": "Distinct receipts: 30 March versus 13 April 2018, different invoice numbers/line items/totals; same merchant template."
+    }
+  ],
+  "warning": "Similar receipt templates can be false positives; these are not confirmed duplicates.",
+  "reviewed_at": "2026-10-23T05:56:23.075179+00:00",
+  "confirmed_cross_split_visual_duplicates_in_candidates": 0
+}

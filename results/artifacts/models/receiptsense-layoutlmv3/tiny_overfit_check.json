@@ -1,0 +1,11 @@
+{
+  "purpose": "training-only tiny classifier-head overfit check; not held-out performance",
+  "receipts": 8,
+  "supervised_units": 126,
+  "initial_loss": 2.1937003135681152,
+  "final_loss": 0.02940027043223381,
+  "supervised_training_accuracy": 1.0,
+  "steps": 21,
+  "passed": true,
+  "head_reset_before_main_training": true
+}

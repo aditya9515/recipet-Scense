@@ -1,0 +1,29 @@
+{
+  "receipts": 550,
+  "usable_receipts": 526,
+  "fully_aligned_receipts": 37,
+  "per_field": {
+    "company": {
+      "exact_match": 388,
+      "unmatched": 155,
+      "ambiguous": 7
+    },
+    "address": {
+      "unmatched": 203,
+      "exact_match": 347
+    },
+    "date": {
+      "exact_match": 200,
+      "unmatched": 322,
+      "ambiguous": 28
+    },
+    "total": {
+      "ambiguous": 301,
+      "unmatched": 41,
+      "exact_match": 208
+    }
+  },
+  "missing_ocr": [],
+  "policy": "exact-span-partial-supervision-v2",
+  "manual_audit": "required; exact string alignment is not semantic proof"
+}
