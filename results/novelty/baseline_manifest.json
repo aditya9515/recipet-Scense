@@ -1,0 +1,27 @@
+{
+  "preserved_at": "2026-10-26T08:18:41.404020+00:00",
+  "baseline_commit": "12dc9749ee77df55c04e7443ecc404b37009e280",
+  "repository": "https://github.com/aditya9515/recipet-Scense",
+  "checkpoint": {
+    "weight_sha256": "30120f49395036280146b7c39f025e5fa8a438aee18eba753b15116a40867669",
+    "manifest_sha256": "1f076fe84bade0f3d1477cf2f759011f69e40c8b27b6936d1d8413604fcf690a",
+    "adaptation": "frozen-backbone classifier-head adaptation",
+    "selected_epoch": 7
+  },
+  "ocr_fingerprint": "0abb4d8c0a48456ae614b16561aa140b2a2520ea954063758ff1e637bd3b187a",
+  "dependencies": {
+    "torch": "2.6.0",
+    "transformers": "4.51.3",
+    "rapidocr-onnxruntime": "1.4.4",
+    "onnxruntime": "1.31.0",
+    "streamlit": "1.66.1",
+    "pydantic": "2.14.1"
+  },
+  "published_evidence": {
+    "results/artifacts/runs/held-out-v1/summary.json": "d18013d7b65f842af6053eba5fe7c43ff65de2c27c61fd64183e870707b0c066",
+    "results/artifacts/benchmark.json": "6cc9e5d8c2e1edc1a45ff2b404692ad0f8713cf690cae02d70a8165afdf415c4",
+    "results/artifacts/test-results.xml": "dc0e73d515624d22e93926950dc6a34e47d403893cd6a55284e36d4ffd6dd988",
+    "results/artifacts/checkpoint_reload_check.json": "362a409a895b2a43d523eec91c56a85248ee397aeaefa3f3f79007bc2846df34"
+  },
+  "training_change": "none; existing frozen-backbone head held fixed for every ablation"
+}

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checkpoint_unchanged": true,
+  "baseline_validation_reproduction": {
+    "layoutlmv3": {
+      "receipts": 61,
+      "raw_field_agreement": 1.0
+    },
+    "rules": {
+      "receipts": 61,
+      "raw_field_agreement": 1.0
+    }
+  },
+  "predictions_audited": 488,
+  "retry_attempts_audited": 465,
+  "maximum_attempts_observed": 2,
+  "all_evidence_resolves": true,
+  "one_fingerprint_per_condition": true
+}

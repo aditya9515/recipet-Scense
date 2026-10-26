@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-10-26T08:26:21.828649+00:00",
+  "passed": true,
+  "device": "cpu",
+  "synthetic_only": true,
+  "database_cleanup": "passed",
+  "checks": [
+    {
+      "synthetic_input": "receipt_clear.png",
+      "method": "rules",
+      "enhancement": "combined",
+      "logical_attempts": 0,
+      "uncached_retry_calls": 0,
+      "evidence_overlay": "passed",
+      "confirmed_export": "passed",
+      "original_preserved": true
+    },
+    {
+      "synthetic_input": "receipt_ambiguous.png",
+      "method": "rules",
+      "enhancement": "combined",
+      "logical_attempts": 2,
+      "uncached_retry_calls": 2,
+      "evidence_overlay": "passed",
+      "confirmed_export": "passed",
+      "original_preserved": true
+    },
+    {
+      "synthetic_input": "receipt_clear.png",
+      "method": "layoutlmv3",
+      "enhancement": "combined",
+      "logical_attempts": 2,
+      "uncached_retry_calls": 2,
+      "evidence_overlay": "passed",
+      "confirmed_export": "passed",
+      "original_preserved": true
+    }
+  ]
+}

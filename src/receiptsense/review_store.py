@@ -49,7 +49,7 @@ class ReviewStore:
                 "SELECT payload FROM predictions WHERE prediction_id=?", (prediction.prediction_id,)
             ).fetchone()
             if existing:
-                if json.loads(existing[0]) != json.loads(payload):
+                if PredictionRecord.model_validate_json(existing[0]) != prediction:
                     raise ValueError("Automated predictions are immutable")
                 return
             db.execute(

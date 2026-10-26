@@ -9,7 +9,8 @@ from receiptsense.common import FIELDS, ROOT, digest, read_json
 from receiptsense.contracts import ImageRecord, OCRRecord, PredictionRecord
 from receiptsense.dataset import dataset_status
 from receiptsense.export import csv_export, json_export
-from receiptsense.imaging import COLORS, evidence_image
+from receiptsense.imaging import COLORS, evidence_image, retry_region_image
+from receiptsense.model import trained_bundle_available
 from receiptsense.pipeline import PipelineResult, process_receipt
 from receiptsense.review_store import ReviewStore
 from receiptsense.samples import create_samples
@@ -120,10 +121,18 @@ def scan_page():
                 data, filename = selected.read_bytes(), selected.name
                 st.caption("Constructed examples for trying the workflow. They are not benchmark results.")
         with options_col:
-            trained = (ROOT / "artifacts/models/receiptsense-layoutlmv3/receiptsense_model.json").exists()
+            trained = trained_bundle_available(ROOT / "artifacts/models/receiptsense-layoutlmv3")
             options = ["Rules baseline", "LayoutLMv3"] if trained else ["Rules baseline"]
             method = st.selectbox("Extraction method", options)
             variant = st.selectbox("Image preparation", ["Original", "Deskew", "Mild contrast"])
+            enhancements = {
+                "Baseline": "none",
+                "Address reconstruction": "address",
+                "Selective recovery": "retry",
+                "Combined": "combined",
+            }
+            enhancement = st.selectbox("Processing mode", list(enhancements))
+            st.caption("Enhanced modes allow at most two extra cropped OCR calls. Scores are uncalibrated.")
             st.caption("The original is retained for evidence inspection.")
             if st.button("Read receipt", type="primary", width="stretch", disabled=data is None):
                 try:
@@ -135,6 +144,7 @@ def scan_page():
                             variant={"Original": "identity", "Deskew": "deskew", "Mild contrast": "contrast"}[
                                 variant
                             ],
+                            enhancement=enhancements[enhancement],
                         )
                         store().save_prediction(result.prediction)
                         st.session_state["result"] = result
@@ -196,12 +206,52 @@ def scan_page():
         )
         if any(u.box_source == "replicated_line" for u in result.ocr.units):
             st.caption("Evidence uses coarse line regions where the OCR engine supplied line geometry.")
+        if prediction.recovery and prediction.recovery.attempts:
+            with st.expander("OCR retry regions"):
+                st.image(
+                    retry_region_image(result.image, [a.crop_bbox for a in prediction.recovery.attempts]),
+                    width="stretch",
+                )
+                st.caption(
+                    "Regions are mapped back to the original receipt. Rejected attempts remain auditable."
+                )
     with right:
         st.subheader("Receipt details")
         flagged = sum(bool(f.review_reasons) or f.status != "predicted" for f in prediction.fields.values())
         st.caption(
             f"{'LayoutLMv3' if prediction.method == 'layoutlmv3' else 'Rules baseline'} · {flagged} fields to check"
         )
+        if prediction.recovery:
+            recovery = prediction.recovery
+            st.caption(
+                f"{recovery.mode.title()} · {recovery.logical_attempts} retry attempts · {recovery.uncached_ocr_calls} uncached retry OCR calls · {recovery.elapsed_seconds:.2f}s extra"
+            )
+            with st.expander("Before / after and recovery decisions"):
+                st.dataframe(
+                    pd.DataFrame(
+                        [
+                            {
+                                "Field": f,
+                                "Before": recovery.baseline_fields[f].raw_value,
+                                "After": prediction.fields[f].raw_value,
+                            }
+                            for f in FIELDS
+                        ]
+                    ),
+                    hide_index=True,
+                )
+                if recovery.address_decision:
+                    decision = recovery.address_decision
+                    st.caption(
+                        f"Address reconstruction: {decision['outcome']} · {decision['reason'].replace('_', ' ')}"
+                    )
+                for attempt in recovery.attempts:
+                    st.markdown(f"**{attempt.attempt_id} · {attempt.field.title()} · {attempt.outcome}**")
+                    st.caption(attempt.reason.replace("_", " "))
+                    st.write(f"Candidate: {attempt.candidate or 'No readable candidate'}")
+                    st.caption(
+                        f"{attempt.preparation.title()} crop · {'Cached OCR' if attempt.cache_hit else 'OCR call' if attempt.ocr_called else 'No OCR call'} · {attempt.elapsed_seconds:.2f}s"
+                    )
         values = {}
         labels = {"company": "Company", "address": "Address", "date": "Date", "total": "Total amount"}
         for name in FIELDS:
@@ -273,6 +323,7 @@ def scan_page():
                     "cache_hit": result.cache_hit,
                     "OCR": result.ocr.engine,
                     "review": review.model_dump(mode="json") if review else None,
+                    "recovery": prediction.recovery.model_dump(mode="json") if prediction.recovery else None,
                 }
             )
             st.dataframe(
@@ -283,6 +334,7 @@ def scan_page():
                             "line": u.line_id,
                             "region": u.unit_id,
                             "recognition_score": u.recognition_score,
+                            "source": u.attempt_id,
                         }
                         for u in result.ocr.units
                     ]
@@ -318,6 +370,13 @@ def experiments_page():
     st.markdown('<div class="eyebrow">Measured evidence</div>', unsafe_allow_html=True)
     st.title("Experiment notebook.")
     summaries = sorted((ROOT / "artifacts/runs").glob("*/summary.json"))
+    summaries += sorted((ROOT / "artifacts/novelty").glob("*/summary.json"))
+    local_names = {p.parent.name for p in summaries}
+    summaries += [
+        p
+        for p in sorted((ROOT / "results/novelty").glob("*/summary.json"))
+        if p.parent.name not in local_names
+    ]
     if not summaries:
         st.info(
             "No evaluation runs yet. Prepared results will appear here after the evaluation command runs."
@@ -328,6 +387,8 @@ def experiments_page():
     st.caption(
         f"{summary['n_receipts']} receipts · {summary['created_at']} · {summary.get('latency_scope', '')}"
     )
+    if summary.get("purpose"):
+        st.info(summary["purpose"])
     policy = st.radio("Metric policy", ["strict-v1", "normalized-v1"], horizontal=True)
     chart_rows = []
     for method, results in summary["results"].items():
@@ -341,6 +402,24 @@ def experiments_page():
             chart_rows.append({"Field": name, "Method": method, "Exact match": metric["exact_match"]})
     table = pd.DataFrame(chart_rows)
     st.bar_chart(table.pivot(index="Field", columns="Method", values="Exact match"), stack=False)
+    if summary.get("configuration_hash"):
+        st.dataframe(
+            pd.DataFrame(
+                [
+                    {
+                        "Condition": condition,
+                        "Address token F1": values["address_token_f1"],
+                        "Retry rate": values["retry_rate"],
+                        "Logical attempts": values["logical_retry_attempts"],
+                        "Uncached retry calls": values["uncached_retry_ocr_calls"],
+                        "Errors corrected": sum(values["corrected_fields"].values()),
+                        "Errors introduced": sum(values["introduced_errors"].values()),
+                    }
+                    for condition, values in summary["results"].items()
+                ]
+            ),
+            hide_index=True,
+        )
     with st.expander("Complete saved result and provenance"):
         st.json(summary)
 

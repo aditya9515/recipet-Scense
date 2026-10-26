@@ -42,12 +42,27 @@ def test_streamlit_initial_screen_and_pages():
     app_test = AppTest.from_file(ROOT / "app/streamlit_app.py", default_timeout=30).run()
     assert not app_test.exception
     assert app_test.title[0].value == "From receipt to record."
+    modes = next(widget for widget in app_test.selectbox if widget.label == "Processing mode")
+    assert modes.value == "Baseline"
+    assert modes.options == ["Baseline", "Address reconstruction", "Selective recovery", "Combined"]
     app_test.sidebar.radio[0].set_value("Review history").run()
     assert not app_test.exception
     app_test.sidebar.radio[0].set_value("Experiments").run()
     assert not app_test.exception
     app_test.sidebar.radio[0].set_value("Model & data").run()
     assert not app_test.exception
+
+
+def test_api_enhancement_contract():
+    import pytest
+    from pydantic import ValidationError
+
+    from api.main import ExtractRequest
+
+    assert ExtractRequest().enhancement == "none"
+    assert ExtractRequest(enhancement="combined").enhancement == "combined"
+    with pytest.raises(ValidationError):
+        ExtractRequest(enhancement="unlimited")
 
 
 def test_history_reopens_latest_correction(monkeypatch, tmp_path, receipt_bytes, clear_ocr):

@@ -1,0 +1,857 @@
+{
+  "created_at": "2026-10-26T08:20:41.163012+00:00",
+  "complete": true,
+  "purpose": "validation development; not independent confirmation",
+  "n_receipts": 61,
+  "configuration": {
+    "version": "recovery-v1",
+    "max_attempts": 2,
+    "max_crop_side": 1600,
+    "upscale": 2.0,
+    "crop_padding_heights": 2.0,
+    "low_ocr_score": 0.8,
+    "low_model_score": 0.6,
+    "header_fraction": 0.5,
+    "payment_start": 0.45,
+    "address_gap_heights": 1.5,
+    "address_overlap": 0.4,
+    "address_max_lines": 6,
+    "address_min_score": 5.5,
+    "address_margin": 1.25,
+    "address_gain": 0.75
+  },
+  "configuration_hash": "7f5d2474715cb33b55e90ef9cbef0b134f44c0deb606d9942feb1b707cd85340",
+  "policy_fingerprint": "36963e80af6bead0ddd540acbb89bbab9b35c35d9b66d8ddcd5a33d6aadb9e45",
+  "source_fingerprint": "cd5ea90b1f293a151d2461c3f7586706de2b6c2164f1d69aa1e6961fdeeaabf3",
+  "checkpoint": {
+    "weight_sha256": "30120f49395036280146b7c39f025e5fa8a438aee18eba753b15116a40867669",
+    "manifest_sha256": "1f076fe84bade0f3d1477cf2f759011f69e40c8b27b6936d1d8413604fcf690a",
+    "adaptation": "frozen-backbone classifier-head adaptation",
+    "selected_epoch": 7
+  },
+  "split_hash": "4b456c2f7d4d7e56305f08b791ca0ca73cb4c290b46458fe6209f15417f562de",
+  "fresh_data_published": false,
+  "results": {
+    "rules/none": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 16,
+            "n": 61,
+            "exact_match": 0.26229508196721313
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 39,
+            "n": 61,
+            "exact_match": 0.639344262295082
+          },
+          "total": {
+            "correct": 22,
+            "n": 61,
+            "exact_match": 0.36065573770491804
+          }
+        },
+        "macro_field_em": 0.3278688524590164,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.9344262295081968,
+        "review_error_recall": 0.9344262295081968,
+        "unflagged_accuracy": 0
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 19,
+            "n": 61,
+            "exact_match": 0.3114754098360656
+          },
+          "address": {
+            "correct": 4,
+            "n": 61,
+            "exact_match": 0.06557377049180328
+          },
+          "date": {
+            "correct": 18,
+            "n": 61,
+            "exact_match": 0.29508196721311475
+          },
+          "total": {
+            "correct": 27,
+            "n": 61,
+            "exact_match": 0.4426229508196721
+          }
+        },
+        "macro_field_em": 0.2786885245901639,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.9344262295081968,
+        "review_error_recall": 0.9344262295081968,
+        "unflagged_accuracy": 0
+      },
+      "address_token_f1": 0.5048311059157853,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 0.0,
+      "logical_retry_attempts": 0,
+      "uncached_retry_ocr_calls": 0,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 0.03436840000358643,
+        "p95": 0.28182789999846136,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "rules/address": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 16,
+            "n": 61,
+            "exact_match": 0.26229508196721313
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 39,
+            "n": 61,
+            "exact_match": 0.639344262295082
+          },
+          "total": {
+            "correct": 22,
+            "n": 61,
+            "exact_match": 0.36065573770491804
+          }
+        },
+        "macro_field_em": 0.3278688524590164,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.9180327868852459,
+        "review_error_recall": 0.9180327868852459,
+        "unflagged_accuracy": 0
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 19,
+            "n": 61,
+            "exact_match": 0.3114754098360656
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 18,
+            "n": 61,
+            "exact_match": 0.29508196721311475
+          },
+          "total": {
+            "correct": 27,
+            "n": 61,
+            "exact_match": 0.4426229508196721
+          }
+        },
+        "macro_field_em": 0.27459016393442626,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.9180327868852459,
+        "review_error_recall": 0.9180327868852459,
+        "unflagged_accuracy": 0
+      },
+      "address_token_f1": 0.5936026661355027,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 0.0,
+      "logical_retry_attempts": 0,
+      "uncached_retry_ocr_calls": 0,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 0.027904599999601487,
+        "p95": 0.26642829999764217,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "rules/retry": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 16,
+            "n": 61,
+            "exact_match": 0.26229508196721313
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 42,
+            "n": 61,
+            "exact_match": 0.6885245901639344
+          },
+          "total": {
+            "correct": 22,
+            "n": 61,
+            "exact_match": 0.36065573770491804
+          }
+        },
+        "macro_field_em": 0.3401639344262295,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.8688524590163934,
+        "review_error_recall": 0.8688524590163934,
+        "unflagged_accuracy": 0
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 19,
+            "n": 61,
+            "exact_match": 0.3114754098360656
+          },
+          "address": {
+            "correct": 4,
+            "n": 61,
+            "exact_match": 0.06557377049180328
+          },
+          "date": {
+            "correct": 22,
+            "n": 61,
+            "exact_match": 0.36065573770491804
+          },
+          "total": {
+            "correct": 27,
+            "n": 61,
+            "exact_match": 0.4426229508196721
+          }
+        },
+        "macro_field_em": 0.29508196721311475,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.8688524590163934,
+        "review_error_recall": 0.8688524590163934,
+        "unflagged_accuracy": 0
+      },
+      "address_token_f1": 0.5165407077893216,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 3,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.012295081967213115,
+        "ci95": [
+          0.0,
+          0.028688524590163935
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 0.9344262295081968,
+      "logical_retry_attempts": 111,
+      "uncached_retry_ocr_calls": 111,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 2.840118899999652,
+        "p95": 4.6782716999950935,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "rules/combined": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 16,
+            "n": 61,
+            "exact_match": 0.26229508196721313
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 43,
+            "n": 61,
+            "exact_match": 0.7049180327868853
+          },
+          "total": {
+            "correct": 22,
+            "n": 61,
+            "exact_match": 0.36065573770491804
+          }
+        },
+        "macro_field_em": 0.3442622950819672,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.8688524590163934,
+        "review_error_recall": 0.8688524590163934,
+        "unflagged_accuracy": 0
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 19,
+            "n": 61,
+            "exact_match": 0.3114754098360656
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 23,
+            "n": 61,
+            "exact_match": 0.3770491803278688
+          },
+          "total": {
+            "correct": 27,
+            "n": 61,
+            "exact_match": 0.4426229508196721
+          }
+        },
+        "macro_field_em": 0.29508196721311475,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 0.8688524590163934,
+        "review_error_recall": 0.8688524590163934,
+        "unflagged_accuracy": 0
+      },
+      "address_token_f1": 0.623247474878672,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 4,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.01639344262295082,
+        "ci95": [
+          0.004098360655737705,
+          0.03278688524590164
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 0.9180327868852459,
+      "logical_retry_attempts": 110,
+      "uncached_retry_ocr_calls": 17,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 0.09810250000009546,
+        "p95": 2.755938700000115,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "layoutlmv3/none": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 18,
+            "n": 61,
+            "exact_match": 0.29508196721311475
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 24,
+            "n": 61,
+            "exact_match": 0.39344262295081966
+          },
+          "total": {
+            "correct": 42,
+            "n": 61,
+            "exact_match": 0.6885245901639344
+          }
+        },
+        "macro_field_em": 0.35655737704918034,
+        "all_four_em": 0.01639344262295082,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 20,
+            "n": 61,
+            "exact_match": 0.32786885245901637
+          },
+          "address": {
+            "correct": 4,
+            "n": 61,
+            "exact_match": 0.06557377049180328
+          },
+          "date": {
+            "correct": 9,
+            "n": 61,
+            "exact_match": 0.14754098360655737
+          },
+          "total": {
+            "correct": 46,
+            "n": 61,
+            "exact_match": 0.7540983606557377
+          }
+        },
+        "macro_field_em": 0.32377049180327866,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "address_token_f1": 0.6954931831924034,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 0.0,
+      "logical_retry_attempts": 0,
+      "uncached_retry_ocr_calls": 0,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 0.4872183999978006,
+        "p95": 1.1823543999998947,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "layoutlmv3/address": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 18,
+            "n": 61,
+            "exact_match": 0.29508196721311475
+          },
+          "address": {
+            "correct": 2,
+            "n": 61,
+            "exact_match": 0.03278688524590164
+          },
+          "date": {
+            "correct": 24,
+            "n": 61,
+            "exact_match": 0.39344262295081966
+          },
+          "total": {
+            "correct": 42,
+            "n": 61,
+            "exact_match": 0.6885245901639344
+          }
+        },
+        "macro_field_em": 0.3524590163934426,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 20,
+            "n": 61,
+            "exact_match": 0.32786885245901637
+          },
+          "address": {
+            "correct": 2,
+            "n": 61,
+            "exact_match": 0.03278688524590164
+          },
+          "date": {
+            "correct": 9,
+            "n": 61,
+            "exact_match": 0.14754098360655737
+          },
+          "total": {
+            "correct": 46,
+            "n": 61,
+            "exact_match": 0.7540983606557377
+          }
+        },
+        "macro_field_em": 0.31557377049180324,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "address_token_f1": 0.626239631717313,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 1,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": -0.004098360655737705,
+        "ci95": [
+          -0.012295081967213115,
+          0.0
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 0.0,
+      "logical_retry_attempts": 0,
+      "uncached_retry_ocr_calls": 0,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 0.46284880000166595,
+        "p95": 1.0609258999975282,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "layoutlmv3/retry": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 18,
+            "n": 61,
+            "exact_match": 0.29508196721311475
+          },
+          "address": {
+            "correct": 3,
+            "n": 61,
+            "exact_match": 0.04918032786885246
+          },
+          "date": {
+            "correct": 28,
+            "n": 61,
+            "exact_match": 0.45901639344262296
+          },
+          "total": {
+            "correct": 42,
+            "n": 61,
+            "exact_match": 0.6885245901639344
+          }
+        },
+        "macro_field_em": 0.3729508196721312,
+        "all_four_em": 0.01639344262295082,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 20,
+            "n": 61,
+            "exact_match": 0.32786885245901637
+          },
+          "address": {
+            "correct": 4,
+            "n": 61,
+            "exact_match": 0.06557377049180328
+          },
+          "date": {
+            "correct": 13,
+            "n": 61,
+            "exact_match": 0.21311475409836064
+          },
+          "total": {
+            "correct": 46,
+            "n": 61,
+            "exact_match": 0.7540983606557377
+          }
+        },
+        "macro_field_em": 0.3401639344262295,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "address_token_f1": 0.6954931831924034,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 4,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 0,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.01639344262295082,
+        "ci95": [
+          0.004098360655737705,
+          0.03278688524590164
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 1.0,
+      "logical_retry_attempts": 122,
+      "uncached_retry_ocr_calls": 90,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 4.0511977999995,
+        "p95": 6.26115690000006,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    },
+    "layoutlmv3/combined": {
+      "strict-v1": {
+        "policy": "strict-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 18,
+            "n": 61,
+            "exact_match": 0.29508196721311475
+          },
+          "address": {
+            "correct": 2,
+            "n": 61,
+            "exact_match": 0.03278688524590164
+          },
+          "date": {
+            "correct": 28,
+            "n": 61,
+            "exact_match": 0.45901639344262296
+          },
+          "total": {
+            "correct": 42,
+            "n": 61,
+            "exact_match": 0.6885245901639344
+          }
+        },
+        "macro_field_em": 0.36885245901639346,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "normalized-v1": {
+        "policy": "normalized-v1",
+        "n_receipts": 61,
+        "per_field": {
+          "company": {
+            "correct": 20,
+            "n": 61,
+            "exact_match": 0.32786885245901637
+          },
+          "address": {
+            "correct": 2,
+            "n": 61,
+            "exact_match": 0.03278688524590164
+          },
+          "date": {
+            "correct": 13,
+            "n": 61,
+            "exact_match": 0.21311475409836064
+          },
+          "total": {
+            "correct": 46,
+            "n": 61,
+            "exact_match": 0.7540983606557377
+          }
+        },
+        "macro_field_em": 0.3319672131147541,
+        "all_four_em": 0,
+        "all_four_denominator": 61,
+        "missing_predictions": 0,
+        "review_rate": 1,
+        "review_error_recall": 1,
+        "unflagged_accuracy": null
+      },
+      "address_token_f1": 0.6295183202419031,
+      "corrected_fields": {
+        "company": 0,
+        "address": 0,
+        "date": 4,
+        "total": 0
+      },
+      "introduced_errors": {
+        "company": 0,
+        "address": 1,
+        "date": 0,
+        "total": 0
+      },
+      "paired_receipt_bootstrap": {
+        "difference": 0.012295081967213115,
+        "ci95": [
+          -0.004098360655737705,
+          0.028688524590163935
+        ],
+        "bootstrap_receipts": 61,
+        "samples": 1000,
+        "seed": 42
+      },
+      "paired_merchant_bootstrap": null,
+      "retry_rate": 1.0,
+      "logical_retry_attempts": 122,
+      "uncached_retry_ocr_calls": 11,
+      "uncached_base_ocr_calls": 0,
+      "pipeline_seconds": {
+        "n": 61,
+        "median": 1.5633644999979879,
+        "p95": 3.8572235999963596,
+        "scope": "accuracy run; caches allowed; not an uncached latency claim"
+      }
+    }
+  },
+  "failures": [],
+  "combined_default_gate": {
+    "rules": false,
+    "layoutlmv3": false
+  }
+}

@@ -209,3 +209,18 @@ def evidence_image(
             xy, fill=(*ImageColor.getrgb(color), 38), outline=(*ImageColor.getrgb(color), 255), width=3
         )
     return Image.alpha_composite(canvas.convert("RGBA"), layer).convert("RGB")
+
+
+def retry_region_image(image: ImageRecord, boxes: list, *, frame="display") -> Image.Image:
+    if frame not in {"display", "processed"}:
+        raise ValueError("Unknown image frame")
+    canvas = Image.open(image.display_path if frame == "display" else image.processed_path).convert("RGB")
+    draw = ImageDraw.Draw(canvas)
+    for index, (left, top, right, bottom) in enumerate(boxes):
+        points = [[left, top], [right, top], [right, bottom], [left, bottom]]
+        if frame == "display":
+            points = transform_points(points, np.linalg.inv(image.display_to_processed)).tolist()
+        points = [tuple(p) for p in points]
+        draw.line([*points, points[0]], fill="#cb643a", width=3)
+        draw.text(points[0], f" Retry {index + 1}", fill="#8a3518")
+    return canvas

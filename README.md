@@ -4,6 +4,8 @@ Prepared: 23 October 2026. Source: [downloaded literature review](downloadfile.p
 
 ReceiptSense reads a printed receipt image and proposes **company, address, date, and total**, with image evidence, uncertainty warnings, user correction, and JSON/CSV export.
 
+**Novelty branch:** selective cropped OCR recovery (maximum two extra calls) and multi-line address reconstruction are implemented as optional processing modes. See [the roadmap](docs/14_NOVELTY_ROADMAP.md) and [the measured novelty report](report/NOVELTY_REPORT.md). The existing trained head stays fixed. Fresh confirmation on 50 new Indian receipts remains pending team collection; development results are labelled separately.
+
 ## Fresh checkout
 
 ```powershell
@@ -48,6 +50,7 @@ Open [ReceiptSense on this computer](http://127.0.0.1:8501). The default OCR run
 | [11 - Engineering and reproducibility](docs/11_ENGINEERING_AND_REPRODUCIBILITY.md) | Proposed repository, setup gates, run artifacts, useful tests |
 | [12 - Risks and decisions](docs/12_RISKS_AND_DECISIONS.md) | Open questions, technical analysis, fallback choices, decision log |
 | [13 - Team, schedule and viva](docs/13_TEAM_SCHEDULE_AND_VIVA.md) | Six-week example schedule, suggested roles, explanations for review |
+| [14 - Recovery and address novelty](docs/14_NOVELTY_ROADMAP.md) | Address graph, selective retries, evidence provenance, validation and fresh confirmation |
 
 The documents are one connected specification: the schema in module 02 is shared by data, OCR, both extractors, the interface, and evaluation. Do not invent a separate format inside each module.
 

@@ -60,6 +60,9 @@ def csv_export(prediction: PredictionRecord, review: ReviewedRecord | None = Non
         or "",
         "review_status": review.state if review else "unreviewed",
         "extraction_method": prediction.method,
+        "processing_mode": prediction.recovery.mode if prediction.recovery else "none",
+        "logical_retry_attempts": prediction.recovery.logical_attempts if prediction.recovery else 0,
+        "uncached_retry_ocr_calls": prediction.recovery.uncached_ocr_calls if prediction.recovery else 0,
     }
     stream = io.StringIO(newline="")
     writer = csv.DictWriter(stream, fieldnames=list(row))

@@ -1,0 +1,65 @@
+{
+  "created_at": "2026-10-26T08:19:57.305377+00:00",
+  "n_validation_receipts": 61,
+  "selection": "mean strict address EM over both methods; macro EM, fewer changes, smaller gap, larger overlap break ties",
+  "configuration_hash": "7f5d2474715cb33b55e90ef9cbef0b134f44c0deb606d9942feb1b707cd85340",
+  "policy_fingerprint": "36963e80af6bead0ddd540acbb89bbab9b35c35d9b66d8ddcd5a33d6aadb9e45",
+  "trials": [
+    {
+      "gap": 1.5,
+      "overlap": 0.2,
+      "address_em": 0.040983606557377046,
+      "macro_em": 0.3401639344262295,
+      "changed_fields": 74
+    },
+    {
+      "gap": 1.5,
+      "overlap": 0.4,
+      "address_em": 0.040983606557377046,
+      "macro_em": 0.3401639344262295,
+      "changed_fields": 72
+    },
+    {
+      "gap": 2.0,
+      "overlap": 0.2,
+      "address_em": 0.040983606557377046,
+      "macro_em": 0.3401639344262295,
+      "changed_fields": 74
+    },
+    {
+      "gap": 2.0,
+      "overlap": 0.4,
+      "address_em": 0.040983606557377046,
+      "macro_em": 0.3401639344262295,
+      "changed_fields": 72
+    },
+    {
+      "gap": 2.5,
+      "overlap": 0.2,
+      "address_em": 0.040983606557377046,
+      "macro_em": 0.3401639344262295,
+      "changed_fields": 73
+    },
+    {
+      "gap": 2.5,
+      "overlap": 0.4,
+      "address_em": 0.040983606557377046,
+      "macro_em": 0.3401639344262295,
+      "changed_fields": 72
+    }
+  ],
+  "selected": {
+    "gap": 1.5,
+    "overlap": 0.4,
+    "address_em": 0.040983606557377046,
+    "macro_em": 0.3401639344262295,
+    "changed_fields": 72
+  },
+  "checkpoint": {
+    "weight_sha256": "30120f49395036280146b7c39f025e5fa8a438aee18eba753b15116a40867669",
+    "manifest_sha256": "1f076fe84bade0f3d1477cf2f759011f69e40c8b27b6936d1d8413604fcf690a",
+    "adaptation": "frozen-backbone classifier-head adaptation",
+    "selected_epoch": 7
+  },
+  "split_hash": "4b456c2f7d4d7e56305f08b791ca0ca73cb4c290b46458fe6209f15417f562de"
+}

@@ -44,6 +44,7 @@ class OCRUnit(Record):
     line_id: str
     reading_order: int = 0
     box_source: Literal["engine", "replicated_line", "reference"] = "engine"
+    attempt_id: str = "base"
 
     @model_validator(mode="after")
     def valid_geometry(self):
@@ -100,6 +101,37 @@ class FieldPrediction(Record):
     currency: str | None = None
 
 
+class RecoveryAttempt(Record):
+    attempt_id: str
+    field: str
+    triggers: list[str]
+    crop_bbox: tuple[int, int, int, int]
+    parent_to_crop: list[list[float]]
+    preparation: str
+    cache_key: str
+    cache_hit: bool = False
+    ocr_called: bool = False
+    elapsed_seconds: float = 0
+    before: str | None = None
+    candidate: str | None = None
+    after: str | None = None
+    outcome: Literal["accepted", "unchanged", "rejected", "error"]
+    reason: str
+    evidence_unit_ids: list[str] = Field(default_factory=list)
+
+
+class RecoveryReport(Record):
+    mode: str
+    configuration_version: str
+    configuration_hash: str
+    baseline_fields: dict[str, FieldPrediction]
+    address_decision: dict = Field(default_factory=dict)
+    attempts: list[RecoveryAttempt] = Field(default_factory=list)
+    logical_attempts: int = 0
+    uncached_ocr_calls: int = 0
+    elapsed_seconds: float = 0
+
+
 class PredictionRecord(Record):
     schema_version: str = "1.0"
     prediction_id: str = Field(default_factory=lambda: uuid4().hex)
@@ -114,6 +146,7 @@ class PredictionRecord(Record):
     configuration_hash: str = ""
     timings: dict[str, float] = Field(default_factory=dict)
     errors: list[str] = Field(default_factory=list)
+    recovery: RecoveryReport | None = None
 
     @model_validator(mode="after")
     def four_fields(self):
