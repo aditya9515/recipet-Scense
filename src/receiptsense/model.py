@@ -11,6 +11,22 @@ from .decoding import decode_fields
 from .encoding import encode_document
 
 
+def trained_bundle_available(checkpoint: str | Path) -> bool:
+    folder = Path(checkpoint)
+    try:
+        metadata = read_json(folder / "receiptsense_model.json")
+        return bool(
+            metadata.get("trained")
+            and metadata.get("labels") == LABELS
+            and all(
+                (folder / name).is_file()
+                for name in ["model.safetensors", "config.json", "tokenizer.json", "preprocessor_config.json"]
+            )
+        )
+    except (OSError, ValueError):
+        return False
+
+
 class LayoutExtractor:
     def __init__(self, checkpoint: str | Path, device: str | None = None):
         import torch

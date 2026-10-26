@@ -3,4 +3,4 @@
 *.png binary
 *.jpg binary
 *.jpeg binary
-results/** -text
+results/** -text whitespace=cr-at-eol

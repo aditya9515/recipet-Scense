@@ -18,3 +18,4 @@ tmp/
 *.key
 *.log
 /data/manifests/train_tail.jsonl
+/data/confirmation/

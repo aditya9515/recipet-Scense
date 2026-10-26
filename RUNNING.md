@@ -154,3 +154,47 @@ The tests exercise total-versus-cash selection, geometry transforms, ambiguous d
 | Design/report/papers | `docs/`, `report/`, `research/` |
 
 Runtime receipts, review database, weights, caches and experiment results are under `artifacts/` and excluded from ordinary Git commits. Screenshot blanks in the original report remain available for you to fill.
+
+## Address reconstruction and selective recovery
+
+Choose **Processing mode** in the application. Baseline (`none`) remains the default. The other modes are `address`, `retry`, and `combined`; the selected extractor remains Rules or the existing frozen-head LayoutLMv3 bundle. No full-model training occurs during recovery.
+
+```powershell
+.\.venv\Scripts\python.exe -m receiptsense.cli predict examples/receipt_ambiguous.png --enhancement combined
+.\.venv\Scripts\python.exe -m receiptsense.cli predict examples/receipt_clear.png --method layoutlmv3 --enhancement address
+.\.venv\Scripts\python.exe -m tools.smoke_novelty
+```
+
+The API extraction request accepts `"enhancement": "combined"` alongside `method` and `variant`. JSON exports retain the baseline fields and recovery trace. CSV adds `processing_mode`, `logical_retry_attempts`, and `uncached_retry_ocr_calls`. Old records still load and reopen. A fresh checkout with only model metadata does not advertise an installed learned bundle.
+
+Recovery permits at most two logical attempts. Cache hits are reported separately from actual OCR calls. Failed or conflicting retries preserve the original suggestion and review reasons. The UI shows before/after values, crop regions, and accept/reject decisions. Scores are heuristics, not calibrated probabilities.
+
+## Reproduce the novelty experiments
+
+```powershell
+.\.venv\Scripts\python.exe -m receiptsense.cli novelty-select data/manifests/validation.jsonl
+.\.venv\Scripts\python.exe -m receiptsense.cli novelty-evaluate data/manifests/validation.jsonl --name validation-new-run
+.\.venv\Scripts\python.exe -m receiptsense.cli novelty-benchmark data/manifests/validation.jsonl --name validation-new-run --limit 10
+.\.venv\Scripts\python.exe -m pytest -q --junitxml=artifacts/novelty/test-results.xml
+```
+
+Selection searches only the predeclared graph grid on validation. Each accuracy run compares both extractors across all four modes. Use a fresh run name; completed evidence is not implicitly overwritten. Uncached latency is a separate experiment. The report generator `tools/build_novelty_report.py` reads the delivered `validation-v1` run and verifies its frozen policy before publishing an explicit aggregate allowlist. Run `python tools/check_novelty_invariants.py` first to verify all 488 saved predictions, the retry budget, evidence resolution and unchanged baseline fields; these audit scripts require the actual runtime artifacts.
+
+## Collect and freeze fresh confirmation receipts
+
+```powershell
+.\.venv\Scripts\python.exe -m receiptsense.cli confirmation-init
+```
+
+This creates ignored `data/confirmation/`, containing instructions, `images/`, `collection.csv`, two annotation CSVs, adjudications and exclusions. Collect 50 English/Latin-script Indian printed receipts from ten merchants (five distinct transactions each), with all four fields visible. Select before inspecting predictions. Two people independently fill the four reference strings using distinct reviewer IDs. A third reviewer must resolve disagreements with a reason. Keep verbatim receipt text and do not silently choose an interpretation for an ambiguous date.
+
+After the validation policy is fixed and both annotation versions are ready:
+
+```powershell
+.\.venv\Scripts\python.exe -m receiptsense.cli confirmation-freeze --name confirmation-v1
+.\.venv\Scripts\python.exe -m receiptsense.cli confirmation-evaluate data/confirmation/frozen/confirmation-v1/manifest.jsonl --lock data/confirmation/frozen/confirmation-v1/lock.json --name confirmation-v1
+```
+
+Freeze rejects missing labels, annotation disagreement without adjudication, wrong merchant counts, duplicate images, overlap with development images, unsupported files, or missing validation evidence. Evaluation verifies hashes of receipts, annotations, manifest, policy/configuration, OCR backend, evaluation protocol and checkpoint before inference. The tool verifies supplied annotations; it cannot prove reviewer independence or collection timing.
+
+Receipt images, transaction-level labels, merchant mappings, predictions and locks stay local. Only aggregate metrics and explicitly approved redacted examples should be published. No fresh confirmation result is supplied with this branch; synthetic test fixtures are not confirmation data. Do not tune the method after inspecting confirmation outcomes and still call the same set untouched.

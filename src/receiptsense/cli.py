@@ -62,8 +62,28 @@ def main():
     predict.add_argument("--variant", choices=["identity", "deskew", "contrast"], default="identity")
     predict.add_argument("--checkpoint", type=Path)
     predict.add_argument("--no-cache", action="store_true")
+    predict.add_argument("--enhancement", choices=["none", "address", "retry", "combined"], default="none")
+    predict.add_argument("--recovery-config", type=Path)
+    select = sub.add_parser("novelty-select", help="Select address graph thresholds on validation only")
+    select.add_argument("manifest", type=Path)
+    ablate = sub.add_parser("novelty-evaluate", help="Compare four enhancement modes on validation")
+    ablate.add_argument("manifest", type=Path)
+    ablate.add_argument("--name", required=True)
+    novelty_timing = sub.add_parser("novelty-benchmark", help="Uncached CPU timing of all eight conditions")
+    novelty_timing.add_argument("manifest", type=Path)
+    novelty_timing.add_argument("--name", required=True)
+    novelty_timing.add_argument("--limit", type=int, default=10)
+    sub.add_parser("confirmation-init", help="Create private CSV annotation templates")
+    freeze = sub.add_parser("confirmation-freeze", help="Verify and freeze 50 double-annotated receipts")
+    freeze.add_argument("--name", default="confirmation-v1")
+    confirm = sub.add_parser("confirmation-evaluate", help="Evaluate a frozen confirmation set")
+    confirm.add_argument("manifest", type=Path)
+    confirm.add_argument("--lock", required=True, type=Path)
+    confirm.add_argument("--name", required=True)
     args = parser.parse_args()
     if args.command == "doctor":
+        from .model import trained_bundle_available
+
         versions = {}
         for name in [
             "receiptsense",
@@ -92,9 +112,9 @@ def main():
             "cuda_available": cuda,
             "device": torch.cuda.get_device_name(0) if cuda else "CPU",
             "base_model_downloaded": (ROOT / "artifacts/models/layoutlmv3-base/model.safetensors").exists(),
-            "trained_receipt_model": (
-                ROOT / "artifacts/models/receiptsense-layoutlmv3/receiptsense_model.json"
-            ).exists(),
+            "trained_receipt_model": trained_bundle_available(
+                ROOT / "artifacts/models/receiptsense-layoutlmv3"
+            ),
         }
     elif args.command == "samples":
         from .samples import create_samples
@@ -145,8 +165,33 @@ def main():
         from .benchmark import benchmark
 
         result = benchmark(args.manifest, limit=args.limit)
+    elif args.command == "novelty-select":
+        from .novelty_evaluation import tune_address
+
+        result = tune_address(args.manifest)
+    elif args.command in {"novelty-evaluate", "confirmation-evaluate"}:
+        from .novelty_evaluation import run_ablation
+
+        result = run_ablation(
+            args.manifest,
+            name=args.name,
+            confirmation_lock=args.lock if args.command == "confirmation-evaluate" else None,
+        )
+    elif args.command == "novelty-benchmark":
+        from .novelty_evaluation import benchmark_enhancements
+
+        result = benchmark_enhancements(args.manifest, name=args.name, limit=args.limit)
+    elif args.command == "confirmation-init":
+        from .confirmation import initialize_confirmation
+
+        result = initialize_confirmation()
+    elif args.command == "confirmation-freeze":
+        from .confirmation import freeze_confirmation
+
+        result = freeze_confirmation(name=args.name)
     else:
         from .pipeline import process_receipt
+        from .recovery_config import load_config
         from .review_store import ReviewStore
 
         output = process_receipt(
@@ -156,6 +201,8 @@ def main():
             variant=args.variant,
             checkpoint=args.checkpoint,
             use_cache=not args.no_cache,
+            enhancement=args.enhancement,
+            recovery_config=load_config(args.recovery_config),
         )
         ReviewStore().save_prediction(output.prediction)
         result = output.prediction.model_dump(mode="json")

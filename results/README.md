@@ -7,3 +7,5 @@ This directory contains a portable snapshot of the measured project results: hel
 The model metadata here is **not an installed model bundle**. Runtime weights, dataset images, OCR caches, uploaded receipts, and the review database remain outside Git. A fresh checkout runs the rules workflow after installation; follow [RUNNING.md](../RUNNING.md) to acquire assets and train a learned bundle.
 
 Runtime commands continue writing under `artifacts/` and `data/processed/`. Run `python tools/snapshot_results.py` after completing those experiments to refresh this selected snapshot.
+
+The [novelty extension](novelty/baseline_manifest.json) separately preserves the original baseline and publishes an explicit allowlist of aggregate validation, timing and verification evidence under `novelty/`. Its report generator never copies the private confirmation collection or transaction-level predictions. The existing snapshot above is retained as the original experiment record.

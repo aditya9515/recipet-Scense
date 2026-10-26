@@ -22,6 +22,10 @@ This document preserves the implementation plan written before development. **Th
 
 The executed learned mode is classifier-head adaptation, not all-parameter fine-tuning. The strict overall comparison did not show an improvement over rules. These limits are part of the delivered result.
 
+### Novelty extension on a separate branch
+
+The approved extension is implemented on `feature/adaptive-receipt-recovery`: a multi-line address graph, up to two selective crop OCR retries, evidence/audit metadata, four UI/API/CLI modes, validation ablations, and private confirmation collection/freeze tooling. Read [the novelty roadmap](docs/14_NOVELTY_ROADMAP.md) and [its measured report](report/NOVELTY_REPORT.md). The original checkpoint stays fixed and Baseline remains the default. The 50-receipt Indian confirmation study remains pending team collection and independent annotation.
+
 ## 2. Order of work
 
 ```mermaid

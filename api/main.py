@@ -14,7 +14,9 @@ from pydantic import BaseModel
 from receiptsense.common import ROOT, read_json, write_json
 from receiptsense.export import csv_export, json_export
 from receiptsense.imaging import ImageInputError, prepare_image
+from receiptsense.model import trained_bundle_available
 from receiptsense.pipeline import process_receipt
+from receiptsense.recovery_config import Enhancement
 from receiptsense.review_store import ReviewStore
 
 app = FastAPI(title="ReceiptSense", version="0.1.0", description="Local receipt extraction and review API")
@@ -28,6 +30,7 @@ def get_store():
 class ExtractRequest(BaseModel):
     method: Literal["rules", "layoutlmv3"] = "rules"
     variant: Literal["identity", "deskew", "contrast"] = "identity"
+    enhancement: Enhancement = "none"
 
 
 class ReviewRequest(BaseModel):
@@ -48,9 +51,9 @@ def uploaded(receipt_id: str) -> tuple[Path, dict]:
 def health():
     return {
         "status": "ok",
-        "trained_model_available": (
-            ROOT / "artifacts/models/receiptsense-layoutlmv3/receiptsense_model.json"
-        ).exists(),
+        "trained_model_available": trained_bundle_available(
+            ROOT / "artifacts/models/receiptsense-layoutlmv3"
+        ),
     }
 
 
@@ -77,6 +80,7 @@ def extract(receipt_id: str, request: ExtractRequest):
             metadata["filename"],
             method=request.method,
             variant=request.variant,
+            enhancement=request.enhancement,
         )
         get_store().save_prediction(result.prediction)
         return result.prediction

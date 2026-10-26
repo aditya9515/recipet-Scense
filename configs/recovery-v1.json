@@ -1,0 +1,17 @@
+{
+  "version": "recovery-v1",
+  "max_attempts": 2,
+  "max_crop_side": 1600,
+  "upscale": 2.0,
+  "crop_padding_heights": 2.0,
+  "low_ocr_score": 0.8,
+  "low_model_score": 0.6,
+  "header_fraction": 0.5,
+  "payment_start": 0.45,
+  "address_gap_heights": 1.5,
+  "address_overlap": 0.4,
+  "address_max_lines": 6,
+  "address_min_score": 5.5,
+  "address_margin": 1.25,
+  "address_gain": 0.75
+}
